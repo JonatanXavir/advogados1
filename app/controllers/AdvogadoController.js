@@ -2,22 +2,22 @@
 const Ajv = require('ajv');
 const localize = require('ajv-i18n/localize/pt-BR');
 const ajv = new Ajv({ allErrors: true }); // É importante ter allErrors: true
-const schema = require('../schemas/jogador/novoJogador.js');
+const schema = require('../schemas/advogado/novoAdvogado.js');
 const validacao = ajv.compile(schema);
 //models
-const models = require('../models');
-const Jogador = models.jogador.Jogador;
+const models = require('../models/index.js');
+const Advogado = models.advogado.Advogado;
 
-class JogadorController {
+class AdvogadoController {
   findAll(request, response) {
-    const equipamentoModel = models.equipamento.EquipamentoModel;
-    Jogador.findAll(equipamentoModel)
+    const processoModel = models.processo.ProcessoModel;
+    Advogado.findAll(processoModel)
       .then((data) => {
         if (data) {
           return response.status(200).json(data);
         } else {
           return response.status(404).json({
-            message: 'jogador nao encontrado',
+            message: 'Advogado nao encontrado',
           });
         }
       })
@@ -31,13 +31,13 @@ class JogadorController {
 
   find(request, response) {
     const id = request.params.id;
-    Jogador.findByPk(id)
+    Advogado.findByPk(id)
       .then((data) => {
         if (data) {
           return response.status(200).json(data);
         } else {
           return response.status(404).json({
-            message: 'jogador nao encontrado',
+            message: 'Advogado nao encontrado',
           });
         }
       })
@@ -58,7 +58,7 @@ class JogadorController {
       });
     }
 
-    Jogador.create(request.body)
+    Advogado.create(request.body)
       .then((data) => {
         return response.status(201).json(data);
       })
@@ -72,17 +72,17 @@ class JogadorController {
   update(request, response) {
     const id = request.params.id;
 
-    Jogador.findByPk(id)
-      .then((buscaJogador) => {
-        if (buscaJogador === null) {
+    Advogado.findByPk(id)
+      .then((buscaAdvogado) => {
+        if (buscaAdvogado === null) {
           return response.status(404).json({
-            message: 'jogador nao encontrado',
+            message: 'Advogado nao encontrado',
           });
         } else {
-          Jogador.update(request.body, id).then((atualizado) => {
+          Advogado.update(request.body, id).then((atualizado) => {
             if (atualizado) {
-              Jogador.findByPk(id).then((jogadorAtualizado) => {
-                return response.status(200).json(jogadorAtualizado);
+              Advogado.findByPk(id).then((advogadoAtualizado) => {
+                return response.status(200).json(advogadoAtualizado);
               });
             } else {
               return response.status(500).json({
@@ -101,15 +101,15 @@ class JogadorController {
 
   delete(request, response) {
     const id = request.params.id;
-    Jogador.delete(id)
+    Advogado.delete(id)
       .then((removido) => {
         if (removido) {
           return response.status(200).json({
-            message: 'jogador excluido com sucesso',
+            message: 'Advogado excluido com sucesso',
           });
         } else {
           return response.status(404).json({
-            message: 'jogador nao encontrado',
+            message: 'Advogado nao encontrado',
           });
         }
       })
@@ -120,4 +120,4 @@ class JogadorController {
       });
   }
 }
-module.exports = new JogadorController();
+module.exports = new AdvogadoController();

@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('./conexao.js');
 
-class Equipamento {
+class Processo {
   #descricao;
   #bonus_ataque;
   #bonus_defesa;

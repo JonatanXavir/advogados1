@@ -4,8 +4,8 @@ const db = {}; //armazenar as classes e models
 
 //importar aqui para atribuir na lista de models e inicializar o BD:
 db.jogador = require('./Jogador.js');
-db.equipamento = require('./Equipamento.js');
-db.cliente = require('./Cliente.js');
+db.equipamento = require('./Processo.js');
+db.cliente = require('./Usuario.js');
 
 //lista de associacoes
 require('./relations.js')(conexao.models);
