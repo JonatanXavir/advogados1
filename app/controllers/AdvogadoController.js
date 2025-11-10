@@ -6,6 +6,7 @@ const schema = require('../schemas/advogado/novoAdvogado.js');
 const validacao = ajv.compile(schema);
 //models
 const models = require('../models/index.js');
+
 const Advogado = models.advogado.Advogado;
 
 class AdvogadoController {

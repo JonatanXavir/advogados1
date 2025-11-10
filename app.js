@@ -22,12 +22,12 @@ app.get('/', (request, response) => {
     version: '1.0',
   });
 });
-const jogadorRotas = require('./app/routes/jogador.routes.js');
-const clienteRotas = require('./app/routes/cliente.routes.js');
-const equipamentoRotas = require('./app/routes/equipamento.routes.js');
-app.use(jogadorRotas);
-app.use(clienteRotas);
-app.use(equipamentoRotas);
+const advogadoRotas = require('./app/routes/advogado.routes.js');
+const usuarioRotas = require('./app/routes/usuario.routes.js');
+const processoRotas = require('./app/routes/processo.routes.js');
+app.use(advogadoRotas);
+app.use(usuarioRotas);
+app.use(processoRotas);
 
 //RODANDO SERVER
 app.listen(config.port, () => {

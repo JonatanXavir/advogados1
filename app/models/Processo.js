@@ -3,8 +3,8 @@ const db = require('./conexao.js');
 
 class Processo {
   #descricao;
-  #bonus_ataque;
-  #bonus_defesa;
+  #status;
+  #numero_processo;
 
   construct() {}
 
@@ -15,30 +15,30 @@ class Processo {
     this.#descricao = descricao;
   }
 
-  get bonus_ataque() {
-    return this.#bonus_ataque;
+  get status() {
+    return this.#status;
   }
-  set bonus_ataque(bonus) {
-    this.#bonus_ataque = bonus;
-  }
-
-  get bonus_defesa() {
-    return this.#bonus_defesa;
-  }
-  set bonus_defesa(bonus) {
-    this.#bonus_defesa = bonus;
+  set status(bonus) {
+    this.#status = bonus;
   }
 
-  static findAllByJogadorId(id_jogador) {
-    return EquipamentoModel.findAll({ where: { id_jogador } });
+  get numero_processo() {
+    return this.#numero_processo;
+  }
+  set numero_processo(bonus) {
+    this.#numero_processo = bonus;
   }
 
-  static create(novoEquipamento) {
-    return EquipamentoModel.create(novoEquipamento);
+  static findAllByAdvogadoId(id_advogado) {
+    return ProcessoModel.findAll({ where: { id_advogado } });
+  }
+
+  static create(novoProcesso) {
+    return ProcessoModel.create(novoProcesso);
   }
 }
 
-const EquipamentoModel = db.define('equipamento', {
+const ProcessoModel = db.define('processo', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -63,4 +63,4 @@ const EquipamentoModel = db.define('equipamento', {
   },
 });
 
-module.exports = { Equipamento, EquipamentoModel };
+module.exports = { Processo, ProcessoModel };

@@ -1,12 +1,11 @@
 const Sequelize = require('sequelize');
 const db = require('./conexao.js');
 
-class Jogador {
+class Advogado {
   #nome;
-  #ataque;
-  #defesa;
-  #pontos_vida;
-
+  #oab;
+  #especialidade;
+  
   // constructor(nome, ataque, defesa, pontos_vida = null ) {
   constructor() {}
 
@@ -17,30 +16,24 @@ class Jogador {
     this.#nome = nome;
   }
 
-  get ataque() {
-    return this.#ataque;
+  get oab() {
+    return this.#oab;
   }
-  set ataque(ataque) {
-    this.#ataque = ataque;
-  }
-
-  get defesa() {
-    return this.#defesa;
-  }
-  set defesa(defesa) {
-    this.#defesa = defesa;
+  set oab(oab) {
+    this.#oab = oab;
   }
 
-  get pontos_vida() {
-    return this.#pontos_vida;
+  get especialidade() {
+    return this.#especialidade;
   }
-  set pontos_vida(hp) {
-    this.#pontos_vida = hp;
+  set especialidade(especialidade) {
+    this.#especialidade = especialidade;
   }
+
 
   static async findByPk(id) {
     try {
-      const resultado = await JogadorModel.findByPk(id);
+      const resultado = await AdvogadoModel.findByPk(id);
       if (resultado) {
         return resultado;
       } else {
@@ -51,9 +44,9 @@ class Jogador {
     }
   }
 
-  static async findAll(equipamento) {
+  static async findAll(processo) {
     try {
-      const resultados = await JogadorModel.findAll({ include: equipamento }); //{where ...}
+      const resultados = await AdvogadoModel.findAll({ include: processo }); //{where ...}
       if (resultados) {
         return resultados;
       } else {
@@ -64,23 +57,23 @@ class Jogador {
     }
   }
 
-  static async create(novoJogador) {
+  static async create(novoAdvogado) {
     try {
-      const jogador = await JogadorModel.create({
-        nome: novoJogador.nome,
-        ataque: novoJogador.ataque,
-        defesa: novoJogador.defesa,
-        pontos_vida: novoJogador.pontos_vida,
+      const advogado = await AdvogadoModel.create({
+        nome: novoAdvogado.nome,
+        oab: novoAdvogado.ataque,
+        especialidade: novoAdvogado.especialidade,
+        
       });
-      return jogador;
+      return advogado;
     } catch (error) {
       throw error;
     }
   }
 
-  static async update(dados, idjogador) {
+  static async update(dados, idadvogado) {
     try {
-      const resultado = await JogadorModel.update(dados, { where: { id: idjogador } });
+      const resultado = await AdvogadoModel.update(dados, { where: { id: idadvogado } });
 
       console.log('update model', resultado);
       if (resultado) {
@@ -95,7 +88,7 @@ class Jogador {
 
   static async delete(id) {
     try {
-      const data = await JogadorModel.findByPk(id);
+      const data = await AdvogadoModel.findByPk(id);
       if (data) {
         data.destroy();
         return true;
@@ -108,7 +101,7 @@ class Jogador {
   }
 }
 
-const JogadorModel = db.define('jogador', {
+const AdvogadoModel = db.define('advogado', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -134,4 +127,4 @@ const JogadorModel = db.define('jogador', {
   },
 });
 
-module.exports = { Jogador, JogadorModel };
+module.exports = { Advogado, AdvogadoModel };
