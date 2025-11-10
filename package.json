@@ -1,7 +1,7 @@
 {
   "name": "player-api",
   "version": "1.0.0",
-  "description": "api de jogadores",
+  "description": "api de advogados",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

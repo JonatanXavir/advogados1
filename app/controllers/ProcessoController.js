@@ -8,7 +8,7 @@ const validacao = ajv.compile(schema);
 
 class ProcessoController {
   findByAdvogado(request, response) {
-    Processo.findAllByJogadorId(request.params.id_processo)
+    Processo.findAllByAdvogadoId(request.params.id_processo)
       .then((processos) => {
         if (processos && processos.length > 0) {
           return response.status(200).json(processos);

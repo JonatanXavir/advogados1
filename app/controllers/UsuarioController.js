@@ -28,7 +28,7 @@ class UsuarioController {
     Usuario.create(usuario)
       .then((data) => {
         data.setDataValue('senha', '');
-        data.setDataValue('token', helper.gerarTokenAcesso(cliente.nome, usuario.id));
+        data.setDataValue('token', helper.gerarTokenAcesso(usuario.nome, usuario.id));
         return response.status(201).json(data);
       })
       .catch((erro) => {

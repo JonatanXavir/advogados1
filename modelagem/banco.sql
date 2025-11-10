@@ -11,20 +11,20 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema apiplayerdb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `apiplayerdb` ;
-USE `apiplayerdb` ;
+CREATE SCHEMA IF NOT EXISTS `adv1` ;
+USE `adv1` ;
 
 -- -----------------------------------------------------
 -- Table `apiplayerdb`.`jogador`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `apiplayerdb`.`jogador` ;
+DROP TABLE IF EXISTS `adv1`.`advogado` ;
 
-CREATE TABLE IF NOT EXISTS `apiplayerdb`.`jogador` (
+CREATE TABLE IF NOT EXISTS `adv1`.`advogado` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(200) NOT NULL,
-  `ataque` INT NOT NULL,
-  `defesa` INT NOT NULL,
-  `pontos_vida` INT NOT NULL,
+  `oab` INT NOT NULL,
+  `especialidade` INT NOT NULL,
+  
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -32,19 +32,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `apiplayerdb`.`equipamento`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `apiplayerdb`.`equipamento` ;
+DROP TABLE IF EXISTS `adv1`.`processo` ;
 
-CREATE TABLE IF NOT EXISTS `apiplayerdb`.`equipamento` (
+CREATE TABLE IF NOT EXISTS `adv1`.`processo` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `id_jogador` INT NOT NULL,
+  `id_advogado` INT NOT NULL,
   `descricao` VARCHAR(150) NULL,
-  `bonus_ataque` INT NULL,
-  `bonus_defesa` INT NULL,
+  `status` INT NULL,
+  `numero_processo` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_equipamento_jogador1_idx` (`id_jogador` ASC),
-  CONSTRAINT `fk_equipamento_jogador1`
-    FOREIGN KEY (`id_jogador`)
-    REFERENCES `apiplayerdb`.`jogador` (`id`)
+  INDEX `fk_processo_advogado1_idx` (`id_advogado` ASC),
+  CONSTRAINT `fk_processo_advogado1`
+    FOREIGN KEY (`id_advogado`)
+    REFERENCES `adv1`.`advogado` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -53,19 +53,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `apiplayerdb`.`equipamento`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `apiplayerdb`.`equipamento` ;
+DROP TABLE IF EXISTS `adv1`.`processo` ;
 
-CREATE TABLE IF NOT EXISTS `apiplayerdb`.`equipamento` (
+CREATE TABLE IF NOT EXISTS `adv1`.`processo` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `id_jogador` INT NOT NULL,
+  `id_advogado` INT NOT NULL,
   `descricao` VARCHAR(150) NULL,
-  `bonus_ataque` INT NULL,
-  `bonus_defesa` INT NULL,
+  `status` INT NULL,
+  `numero_processo` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_equipamento_jogador1_idx` (`id_jogador` ASC),
-  CONSTRAINT `fk_equipamento_jogador1`
-    FOREIGN KEY (`id_jogador`)
-    REFERENCES `apiplayerdb`.`jogador` (`id`)
+  INDEX `fk_processo_advogado1_idx` (`id_advogado` ASC),
+  CONSTRAINT `fk_processo_advogado1`
+    FOREIGN KEY (`id_advogado`)
+    REFERENCES `adv1`.`advogado` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -75,8 +75,8 @@ ENGINE = InnoDB;
 -- Data for table `apiplayerdb`.`jogador`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `apiplayerdb`;
-INSERT INTO `apiplayerdb`.`jogador` (`id`, `nome`, `ataque`, `defesa`, `pontos_vida`) VALUES (DEFAULT, 'player1', 40, 50, 100);
+USE `adv1`;
+INSERT INTO `adv1`.`adogado` (`id`, `nome`, `oab`, `especialidade`, ) VALUES (DEFAULT, 'advogado1', 12345, "civil");
 
 COMMIT;
 
@@ -85,9 +85,9 @@ COMMIT;
 -- Data for table `apiplayerdb`.`equipamento`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `apiplayerdb`;
-INSERT INTO `apiplayerdb`.`equipamento` (`id`, `id_jogador`, `descricao`, `bonus_ataque`, `bonus_defesa`) VALUES (DEFAULT, 1, 'espada', 30, 15);
-INSERT INTO `apiplayerdb`.`equipamento` (`id`, `id_jogador`, `descricao`, `bonus_ataque`, `bonus_defesa`) VALUES (DEFAULT, 1, 'escudo', 5, 80);
+USE `adv1`;
+INSERT INTO `adv1`.`processo` (`id`, `id_advogado`, `descricao`, `status`, `numero_processo`) VALUES (DEFAULT, 1, 'civil', 1, 2017082012345678);
+INSERT INTO `adv1`.`processo` (`id`, `id_advogado`, `descricao`, `status`, `numero_processo`) VALUES (DEFAULT, 1, 'civil', 2, 2017082012345679);
 
 COMMIT;
 

@@ -61,7 +61,7 @@ class Advogado {
     try {
       const advogado = await AdvogadoModel.create({
         nome: novoAdvogado.nome,
-        oab: novoAdvogado.ataque,
+        oab: novoAdvogado.oab,
         especialidade: novoAdvogado.especialidade,
         
       });
@@ -112,19 +112,15 @@ const AdvogadoModel = db.define('advogado', {
     type: Sequelize.STRING(80),
     allowNull: false,
   },
-  ataque: {
+  oab: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  defesa: {
+  especialidade: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  pontos_vida: {
-    type: Sequelize.INTEGER,
-    allowNull: true,
-    defaultValue: 100,
-  },
+
 });
 
 module.exports = { Advogado, AdvogadoModel };

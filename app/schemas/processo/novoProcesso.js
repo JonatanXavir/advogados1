@@ -2,9 +2,9 @@ module.exports = {
   type: 'object',
   properties: {
     descricao: { type: 'string' },
-    bonus_ataque: { type: 'integer' },
-    bonus_defesa: { type: 'integer' },
+    oab: { type: 'integer' },
+    especialidade: { type: 'integer' },
   },
-  required: ['descricao', 'bonus_ataque', 'bonus_defesa'],
+  required: ['descricao', 'oab', 'especialidade'],
     additionalProperties: false,
 };

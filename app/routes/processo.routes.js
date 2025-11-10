@@ -20,10 +20,10 @@ router.put('/advogado/:id', [authMiddleware.check], advogadoController.update);
 router.delete('/advogado/:id', [authMiddleware.check], advogadoController.delete);
 
 //retorna todos os equipamentos de um jogador
-router.get('/advogado/:id_advogado/equipamento', [authMiddleware.check], processoController.findByJogador);
+router.get('/advogado/:id_advogado/processo', [authMiddleware.check], processoController.findByAdvogado);
 
 //cria um novo equipamento para um jogador
-router.post('/advogado/:id_advogado/equipamento', [authMiddleware.check], processoController.create);
+router.post('/advogado/:id_advogado/processo', [authMiddleware.check], processoController.create);
 
 //router.put('/jogador/:id_jogador/equipamento/:id_equipamento', [authMiddleware.check], equipamentoController.update);
 

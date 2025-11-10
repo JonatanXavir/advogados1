@@ -2,11 +2,18 @@ const Sequelize = require('sequelize');
 const db = require('./conexao.js');
 
 class Processo {
+  #id;
   #descricao;
   #status;
   #numero_processo;
 
-  construct() {}
+  constructor(id) {
+    this.#id = id;
+  }
+
+  get id() {
+    return this.#id;
+  }
 
   get descricao() {
     return this.#descricao;
@@ -18,15 +25,15 @@ class Processo {
   get status() {
     return this.#status;
   }
-  set status(bonus) {
-    this.#status = bonus;
+  set status(status) {
+    this.#status = status;
   }
 
   get numero_processo() {
     return this.#numero_processo;
   }
-  set numero_processo(bonus) {
-    this.#numero_processo = bonus;
+  set numero_processo(numero) {
+    this.#numero_processo = numero;
   }
 
   static findAllByAdvogadoId(id_advogado) {
@@ -44,8 +51,8 @@ const ProcessoModel = db.define('processo', {
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
-    },
-  id_jogador: {
+  },
+  id_advogado: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
@@ -53,13 +60,13 @@ const ProcessoModel = db.define('processo', {
     type: Sequelize.STRING(80),
     allowNull: false,
   },
-  bonus_ataque: {
+  status: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  bonus_defesa: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
+  numero_processo: {
+    type: Sequelize.STRING, 
+    allowNull: true,
   },
 });
 
