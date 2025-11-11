@@ -2,9 +2,9 @@ module.exports = {
   type: 'object',
   properties: {
     descricao: { type: 'string' },
-    oab: { type: 'integer' },
-    especialidade: { type: 'integer' },
+    numero_processo: { type: 'string', maxLength: 20  },
+    status: { type: 'string'},
   },
-  required: ['descricao', 'oab', 'especialidade'],
+  required: ['descricao', 'numero_processo', 'status'],
     additionalProperties: false,
 };

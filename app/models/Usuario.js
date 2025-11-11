@@ -31,7 +31,7 @@ class Usuario {
 
   static async create(novoUsuario) {
     try {
-      const cliente = await UsuarioModel.create({
+      const usuario = await UsuarioModel.create({
         nome: novoUsuario.nome,
         email: novoUsuario.email,
         senha: novoUsuario.senha,
