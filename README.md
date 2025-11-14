@@ -53,7 +53,7 @@ Esta é uma API RESTful construída com Node.js e Express para gerenciar advogad
 
 4.  **Inicie o servidor:**
     ```bash
-    npm start
+    npm run dev
     ```
     O servidor estará rodando em `http://localhost:3000`.
 

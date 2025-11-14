@@ -117,7 +117,7 @@ const AdvogadoModel = db.define('advogado', {
     allowNull: false,
   },
   especialidade: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
 

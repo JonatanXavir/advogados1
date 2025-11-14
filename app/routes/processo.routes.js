@@ -3,10 +3,10 @@ var router = express.Router();
 const processoController = require('../controllers/ProcessoController.js');
 const authMiddleware = require('../middlewares/TokenValido.js');
 
-//retorna todos os equipamentos de um jogador
+//retorna todos os processo de um advogado
 router.get('/advogado/:id_advogado/processo', [authMiddleware.check], processoController.findByAdvogado);
 
-//cria um novo equipamento para um jogador
+//cria um novo processo para um advogado
 router.post('/advogado/:id_advogado/processo', [authMiddleware.check], processoController.create);
 
 router.put('/advogado/:id_advogado/processo/:id_processo', [authMiddleware.check], processoController.update);

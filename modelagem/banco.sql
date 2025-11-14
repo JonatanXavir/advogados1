@@ -5,17 +5,17 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema apiplayerdb
+-- Schema adv1
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema apiplayerdb
+-- Schema adv1
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `adv1` ;
 USE `adv1` ;
 
 -- -----------------------------------------------------
--- Table `apiplayerdb`.`jogador`
+-- Table `apiplayerdb`.`advogado`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `adv1`.`advogado` ;
 
@@ -30,7 +30,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `apiplayerdb`.`equipamento`
+-- Table `adv1`.`processo`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `adv1`.`processo` ;
 
@@ -51,7 +51,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `apiplayerdb`.`equipamento`
+-- Table `adv1`.`processo`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `adv1`.`processo` ;
 
@@ -72,7 +72,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Data for table `apiplayerdb`.`jogador`
+-- Data for table `adv1`.`advogado`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `adv1`;
@@ -82,7 +82,7 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `apiplayerdb`.`equipamento`
+-- Data for table `adv1`.`processo`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `adv1`;
